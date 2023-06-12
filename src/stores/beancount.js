@@ -25,9 +25,55 @@ import { defineStore } from "pinia";
  * @type {StoreDefinition<"beancount", {}, {}, {}>}
  */
 
+const accounts = [
+  {
+    accname: "Assets:Card:5799",
+    acccurrency: "CNY",
+    type: "Assets",
+    balance: 145.00,
+    newest: "2023-06-12",
+    count: 20
+  },{
+    accname: "Assets:Weixin",
+    acccurrency: "CNY",
+    type: "Assets",
+    balance: 145.00,
+    newest: "2023-06-12",
+    count: 20
+  },{
+    accname: "Expenses:Life",
+    acccurrency: "CNY",
+    type: "Expenses",
+    balance: 0,
+    newest: "2023-06-12",
+    count: 20
+  },{
+    accname: "Expenses:Smoke",
+    acccurrency: "CNY",
+    type: "Expenses",
+    balance: 0,
+    newest: "2023-06-12",
+    count: 20
+  },{
+    accname: "Expenses:Coffee",
+    acccurrency: "CNY",
+    type: "Expenses",
+    balance: 0,
+    newest: "2023-06-12",
+    count: 20
+  },{
+    accname: "Expenses:Family",
+    acccurrency: "CNY",
+    type: "Expenses",
+    balance: 0,
+    newest: "2023-06-12",
+    count: 20
+  },
+]
+
 export const useBeanStore = defineStore("beancount", {
   state: () => ({
-    accounts: [],
+    accounts: accounts,
     journals: [],
   }),
   persist: true,

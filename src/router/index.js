@@ -16,7 +16,7 @@ const routes = [
     },
     path: "/income_statement",
     name: "test",
-    component: () => import("@/views/TestView.vue")
+    component: () => import("@/views/TestView.vue"),
   },
   {
     // Document title tag

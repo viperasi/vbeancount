@@ -1,8 +1,5 @@
 import {open} from "@tauri-apps/api/dialog"
 import {readTextFile} from "@tauri-apps/api/fs"
-import {useMainStore} from "@/stores/main.js";
-
-const mainStore = useMainStore()
 
 // 注释指令
 const BeanComment = ";"

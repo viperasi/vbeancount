@@ -10,15 +10,6 @@ import "./css/main.css";
 /* Create Vue app */
 createApp(App).use(router).use(stores).mount("#app");
 
-/* Dark mode */
-// if (
-//   (!localStorage[darkModeKey] &&
-//     window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-//   localStorage[darkModeKey] === "1"
-// ) {
-//   styleStore.setDarkMode(true);
-// }
-
 /* Default title tag */
 const defaultDocumentTitle = "VBeancount";
 
