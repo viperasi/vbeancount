@@ -1,130 +1,79 @@
-<template>
-  <div class="app-layout">
-    <navbar />
-    <div class="app-layout__content">
-      <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
-        <div v-if="isFullScreenSidebar" class="d-flex justify-end">
-          <va-button class="px-4 py-4" icon="md_close" preset="plain" color="dark" @click="onCloseSidebarButtonClick" />
-        </div>
-        <sidebar
-          :width="sidebarWidth"
-          :minimized="isSidebarMinimized"
-          :minimized-width="sidebarMinimizedWidth"
-          :animated="!isMobile"
-        />
-      </div>
-      <div class="app-layout__page">
-        <div class="layout fluid va-gutter-5">
-          <router-view />
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
-  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-  import { storeToRefs } from 'pinia'
-  import { onBeforeRouteUpdate } from 'vue-router'
+import {mdiForwardburger, mdiBackburger} from "@mdi/js";
+import {ref} from "vue";
+import {useRouter} from "vue-router";
+import menuAside from "@/menuAside.js";
+import menuNavBar from "@/menuNavBar.js";
+import {useStyleStore} from "@/stores/style.js";
+import BaseIcon from "@/components/BaseIcon.vue";
+import NavBar from "@/components/NavBar.vue";
+import NavBarItemPlain from "@/components/NavBarItemPlain.vue";
+import AsideMenu from "@/components/AsideMenu.vue";
+import BeanParse from "@/beancount/parse.js";
 
-  import { useGlobalStore } from '../stores/global-store'
+const layoutAsidePadding = "xl:pl-60";
 
-  import Navbar from '../components/navbar/Navbar.vue'
-  import Sidebar from '../components/sidebar/Sidebar.vue'
+const styleStore = useStyleStore();
 
-  const GlobalStore = useGlobalStore()
+const router = useRouter();
 
-  const mobileBreakPointPX = 640
-  const tabletBreakPointPX = 768
+const isAsideMobileExpanded = ref(false);
+const isAsideLgActive = ref(false);
 
-  const sidebarWidth = ref('16rem')
-  const sidebarMinimizedWidth = ref(undefined)
+router.beforeEach(() => {
+    isAsideMobileExpanded.value = false;
+    isAsideLgActive.value = false;
+});
 
-  const isMobile = ref(false)
-  const isTablet = ref(false)
-  const { isSidebarMinimized } = storeToRefs(GlobalStore)
-  const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX
-  const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX
+const menuClick = (event, item) => {
 
-  const onResize = () => {
-    isSidebarMinimized.value = checkIsTablet()
-
-    isMobile.value = checkIsMobile()
-    isTablet.value = checkIsTablet()
-    sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
-    sidebarWidth.value = isTablet.value ? '100%' : '16rem'
-  }
-
-  onMounted(() => {
-    window.addEventListener('resize', onResize)
-  })
-
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize)
-  })
-
-  onBeforeRouteUpdate(() => {
-    if (checkIsTablet()) {
-      // Collapse sidebar after route change for Mobile
-      isSidebarMinimized.value = true
+    if (item.isToggleLightDark) {
+        styleStore.setDarkMode();
     }
-  })
 
-  onResize()
-
-  const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value)
-
-  const onCloseSidebarButtonClick = () => {
-    isSidebarMinimized.value = true
-  }
+    if (item.isOpen) {
+        BeanParse.open()
+    }
+};
 </script>
 
-<style lang="scss">
-  $mobileBreakPointPX: 640px;
-  $tabletBreakPointPX: 768px;
-
-  .app-layout {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    &__navbar {
-      min-height: 4rem;
-    }
-
-    &__content {
-      display: flex;
-      height: calc(100vh - 4rem);
-      flex: 1;
-
-      @media screen and (max-width: $tabletBreakPointPX) {
-        height: calc(100vh - 6.5rem);
-      }
-
-      .app-layout__sidebar-wrapper {
-        position: relative;
-        height: 100%;
-        background: #ffffff;
-
-        @media screen and (max-width: $tabletBreakPointPX) {
-          &:not(.minimized) {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 999;
-          }
-
-          .va-sidebar:not(.va-sidebar--minimized) {
-            .va-sidebar__menu {
-              padding: 0;
-            }
-          }
-        }
-      }
-    }
-    &__page {
-      flex-grow: 2;
-      overflow-y: scroll;
-    }
-  }
-</style>
+<template>
+    <div
+        :class="{
+      dark: styleStore.darkMode,
+      'overflow-hidden lg:overflow-visible': isAsideMobileExpanded,
+    }"
+    >
+        <div
+            :class="[layoutAsidePadding, { 'ml-60 lg:ml-0': isAsideMobileExpanded }]"
+            class="pt-14 min-h-screen w-screen transition-position lg:w-auto bg-gray-50 dark:bg-slate-800 dark:text-slate-100"
+        >
+            <NavBar
+                :class="[
+          layoutAsidePadding,
+          { 'ml-60 lg:ml-0': isAsideMobileExpanded },
+        ]"
+                :menu="menuNavBar"
+                @menu-click="menuClick"
+            >
+                <NavBarItemPlain
+                    display="flex lg:hidden"
+                    @click.prevent="isAsideMobileExpanded = !isAsideMobileExpanded"
+                >
+                    <BaseIcon
+                        :path="isAsideMobileExpanded ? mdiBackburger : mdiForwardburger"
+                        size="24"
+                    />
+                </NavBarItemPlain>
+            </NavBar>
+            <AsideMenu
+                :is-aside-lg-active="isAsideLgActive"
+                :is-aside-mobile-expanded="isAsideMobileExpanded"
+                :menu="menuAside"
+                @menu-click="menuClick"
+                @aside-lg-close-click="isAsideLgActive = false"
+            />
+            <slot/>
+        </div>
+    </div>
+</template>
