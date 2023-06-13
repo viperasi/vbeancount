@@ -54,7 +54,7 @@ export default [
     icon: mdiFileEditOutline,
   },
   {
-    to: "/options",
+    to: "/setting",
     label: "设置",
     icon: mdiCogOutline,
   },

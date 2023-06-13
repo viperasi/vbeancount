@@ -38,19 +38,19 @@ const routes = [
   },
   {
     meta: {
-      title: "Forms",
+      title: "编辑器",
     },
-    path: "/forms",
-    name: "forms",
-    component: () => import("@/views/FormsView.vue"),
+    path: "/editor",
+    name: "editor",
+    component: () => import("@/views/EditorView.vue"),
   },
   {
     meta: {
-      title: "Profile",
+      title: "设置",
     },
-    path: "/profile",
-    name: "profile",
-    component: () => import("@/views/ProfileView.vue"),
+    path: "/setting",
+    name: "setting",
+    component: () => import("@/views/SettingView.vue"),
   },
   {
     meta: {
