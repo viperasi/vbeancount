@@ -2,8 +2,6 @@
 
 ![](https://img.shields.io/badge/platform-win--64%20%7C%20osx--64-lightgrey)![](https://img.shields.io/badge/license-GPL2.0-blue)![](https://img.shields.io/badge/node-%3E%3D%2016.13.0-brightgreen)![](https://img.shields.io/badge/tauri-%5E1.3-blue)![](https://img.shields.io/badge/vuejs-%5E3.0.0-blue)![](https://img.shields.io/badge/pinia-%5E2.0.13-blue)![](https://img.shields.io/badge/vite-%5E3.0.9-blue)
 
-[TOC]
-
 ## 说明
 
 一个基于[vue3](https://vuejs.org/)和[tauri](https://tauri.app/)的跨平台[beancount](https://github.com/beancount/beancount)工具, UI使用[Admin One &mdash; Free Vue 3.x Tailwind 3.x Admin Dashboard with dark mode](https://justboil.me/tailwind-admin-templates/free-vue-dashboard/).通过内置的beancount](https://github.com/beancount/beancount)实现,完成数据解析, 查询, 语法提示, 语法高亮等功能.
