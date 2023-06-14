@@ -12,11 +12,11 @@ const routes = [
   },
   {
     meta: {
-      title: "Test",
+      title: "损益表",
     },
     path: "/income_statement",
-    name: "test",
-    component: () => import("@/views/TestView.vue"),
+    name: "income_statement",
+    component: () => import("@/views/IncomeStatementView.vue"),
   },
   {
     // Document title tag

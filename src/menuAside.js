@@ -59,7 +59,7 @@ export default [
     icon: mdiCogOutline,
   },
   {
-    to: "/help",
+    to: "/",
     label: "帮助",
     icon: mdiHelpCircleOutline,
   },
