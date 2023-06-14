@@ -25,6 +25,129 @@ import { defineStore } from "pinia";
  * @type {StoreDefinition<"beancount", {}, {}, {}>}
  */
 
+const journals = [
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+  {
+    time: "2023-06-01",
+    status: "*",
+    payee: "",
+    narration: "早餐",
+    children: [
+      {
+        account: "Expenses:Life",
+        amount: 18.5,
+        currency: "CNY",
+        index: 0
+      },
+      {
+        account: "Assets:Card:5799",
+        amount: -18.5,
+        currency: "CNY",
+        index: 1
+      },
+    ]
+  },
+]
+
 const accounts = [
   {
     accname: "Assets:Card:5799",
@@ -74,7 +197,7 @@ const accounts = [
 export const useBeanStore = defineStore("beancount", {
   state: () => ({
     accounts: accounts,
-    journals: [],
+    journals: journals,
   }),
   persist: true,
   actions: {

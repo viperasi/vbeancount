@@ -54,19 +54,19 @@ const routes = [
   },
   {
     meta: {
-      title: "Ui",
+      title: "关于",
     },
-    path: "/ui",
-    name: "ui",
-    component: () => import("@/views/UiView.vue"),
+    path: "/about",
+    name: "about",
+    component: () => import("@/views/AboutView.vue"),
   },
   {
     meta: {
-      title: "Responsive layout",
+      title: "日记账",
     },
-    path: "/responsive",
-    name: "responsive",
-    component: () => import("@/views/ResponsiveView.vue"),
+    path: "/journal",
+    name: "journal",
+    component: () => import("@/views/JournalView.vue"),
   },
   {
     meta: {

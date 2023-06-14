@@ -63,9 +63,4 @@ export default [
     label: "帮助",
     icon: mdiHelpCircleOutline,
   },
-  {
-    to: "/about",
-    label: "关于",
-    icon: mdiInformationOutline,
-  },
 ];
