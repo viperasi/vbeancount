@@ -70,19 +70,19 @@ const routes = [
   },
   {
     meta: {
-      title: "Login",
+      title: "资产负债表",
     },
-    path: "/login",
-    name: "login",
-    component: () => import("@/views/LoginView.vue"),
+    path: "/balance_sheet",
+    name: "balance_sheet",
+    component: () => import("@/views/BalanceSheetView.vue"),
   },
   {
     meta: {
-      title: "Error",
+      title: "试算表",
     },
-    path: "/error",
-    name: "error",
-    component: () => import("@/views/ErrorView.vue"),
+    path: "/trial_balance",
+    name: "trial_balance",
+    component: () => import("@/views/TrialBalanceView.vue"),
   },
 ];
 

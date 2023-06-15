@@ -5,11 +5,9 @@ import {
   mdiTelevisionGuide,
   mdiAccountCardOutline,
   mdiNotebookOutline,
-  mdiChartBoxOutline,
+  mdiOpenInNew,
   mdiFileEditOutline,
   mdiCogOutline,
-  mdiHelpCircleOutline,
-  mdiInformationOutline,
 } from "@mdi/js";
 
 export default [
@@ -43,11 +41,11 @@ export default [
     label: "账户",
     icon: mdiAccountCardOutline,
   },
-  {
-    to: "/statistics",
-    label: "统计",
-    icon: mdiChartBoxOutline,
-  },
+  // {
+  //   to: "/statistics",
+  //   label: "统计",
+  //   icon: mdiChartBoxOutline,
+  // },
   {
     to: "/editor",
     label: "编辑器",
@@ -59,8 +57,9 @@ export default [
     icon: mdiCogOutline,
   },
   {
-    to: "/",
+    href: "https://github.com/viperasi/vbeancount",
     label: "帮助",
-    icon: mdiHelpCircleOutline,
+    icon: mdiOpenInNew,
+    target: "_blank",
   },
 ];
