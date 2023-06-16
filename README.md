@@ -4,7 +4,7 @@
 
 ## 说明
 
-一个基于[vue3](https://vuejs.org/)和[tauri](https://tauri.app/)的跨平台[beancount](https://github.com/beancount/beancount)工具, 组件模板使用[primevue](https://primevue.org/)和[SAKAI](https://sakai.primevue.org).通过内置的[beancount](https://github.com/beancount/beancount)实现,完成数据解析, 查询, 语法提示, 语法高亮等功能.
+一个基于[Vue3](https://vuejs.org/)和[Tauri](https://tauri.app/)的跨平台[beancount](https://github.com/beancount/beancount)工具, 组件模板使用[PrimeVue](https://primevue.org/)和[Sakai](https://sakai.primevue.org).通过内置的[beancount](https://github.com/beancount/beancount)实现,完成数据解析, 查询, 语法提示, 语法高亮等功能.
 
 ## 安装和下载
 

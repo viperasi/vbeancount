@@ -27,7 +27,7 @@ const model = ref([
     {
         label: '其他',
         items: [
-            { label: '编辑器', icon: 'pi pi-fw pi-code', to: '/uikit/formlayout' },
+            { label: '编辑器', icon: 'pi pi-fw pi-code', to: '/editor' },
             { label: '选项', icon: 'pi pi-fw pi-cog', to: '/setting' },
             { label: '帮助', icon: 'pi pi-fw pi-external-link', url: 'https://github.com/viperasi/vbeancount', target: '_blank' },
             { label: '关于', icon: 'pi pi-fw pi-info-circle', to: '/about' },

@@ -53,6 +53,11 @@ const router = createRouter({
                     component: () => import('@/views/pages/AboutView.vue')
                 },
                 {
+                    path: '/editor',
+                    name: 'editor',
+                    component: () => import('@/views/pages/EditorView.vue')
+                },
+                {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
                     component: () => import('@/view/uikit/FormLayout.vue')
